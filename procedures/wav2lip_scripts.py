@@ -7,7 +7,7 @@ def wav2lip_run(adir):
   aud_path = f'{os.getcwd()}/input/audio/{adir}/{adir}.wav'
   out_path = f'{os.getcwd()}/output/wav2Lip/{adir}.mp4'
   os.chdir('Wav2Lip')
-  command = f'python inference.py --checkpoint_path ./checkpoints/wav2lip.pth --face {vid_path} --audio {aud_path} --outfile {out_path}  --pads 0 20 0 0'
+  command = f'python inference.py --checkpoint_path ./checkpoints/wav2lip.pth --face {vid_path} --audio {aud_path} --outfile {out_path}  --pads 0 20 0 0 --face_det_batch_size 1 --wav2lip_batch_size 1'
   try:
     subprocess.call(command, shell=True)
   except subprocess.CalledProcessError:
